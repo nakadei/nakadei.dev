@@ -7,7 +7,21 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Briefcase, GraduationCap, Star } from 'lucide-vue-next'
+import { Button } from '@/components/ui/button'
+import { Briefcase, GraduationCap, Star, ChevronDown, ChevronUp } from 'lucide-vue-next'
+import { ref } from 'vue'
+
+const expandedItems = ref<Set<number>>(new Set())
+
+const toggleExpand = (index: number) => {
+  const newSet = new Set(expandedItems.value)
+  if (newSet.has(index)) {
+    newSet.delete(index)
+  } else {
+    newSet.add(index)
+  }
+  expandedItems.value = newSet
+}
 
 const events = [
   {
@@ -15,6 +29,9 @@ const events = [
     title: 'Web Frontend / Infra Engineer',
     company: 'Fanfare Inc.',
     description: '',
+    details: `・Frontend development with Vue 3 / TypeScript
+・Infrastructure management using AWS / Terraform
+・Leading the migration from legacy systems to modern architecture`,
     icon: Briefcase,
     type: 'work'
   },
@@ -23,6 +40,8 @@ const events = [
     title: 'Web Frontend Engineer',
     company: 'Freelance',
     description: '',
+    details: `・Supported development of a SaaS product using React / Next.js
+・Implemented complex UI components and data visualizations`,
     icon: Briefcase,
     type: 'work'
   },
@@ -31,6 +50,9 @@ const events = [
     title: 'Infra / Web Frontend Engineer',
     company: 'Japan Digital Design Inc.',
     description: '',
+    details: `・Designed and built cloud infrastructure on GCP
+・Developed internal tools and dashboards using Vue.js
+・Collaborated with design teams to implement pixel-perfect UIs`,
     icon: Briefcase,
     type: 'work'
   },
@@ -39,6 +61,8 @@ const events = [
     title: 'Infra / Corporate Engineer',
     company: 'Japan Digital Design Inc.',
     description: '',
+    details: `・Corporate IT support and network administration
+・Managed security policies and compliance audits`,
     icon: Briefcase,
     type: 'work'
   },
@@ -47,6 +71,8 @@ const events = [
     title: 'Infra Engineer',
     company: 'Asia Quest Inc.',
     description: '',
+    details: `・Server maintenance and monitoring (Linux/Windows)
+・Network troubleshooting and performance tuning`,
     icon: Briefcase,
     type: 'work'
   },
@@ -55,6 +81,8 @@ const events = [
     title: 'Student',
     company: 'Funabashi-Infomation-Business College of Technology',
     description: '',
+    details: `・Majored in Information Technology
+・Learned basics of programming (Java, C) and Database management`,
     icon: GraduationCap,
     type: 'education'
   }
@@ -86,11 +114,24 @@ const events = [
                 {{ event.title }}
                 </CardTitle>
             </CardHeader>
-            <CardContent>
-                <p class="text-muted-foreground leading-relaxed">
-                {{ event.description }}
-                </p>
+            <CardContent v-if="event.details && expandedItems.has(index)">
+                <div class="pt-4 border-t border-border mt-4 text-sm text-muted-foreground whitespace-pre-line leading-relaxed">
+                  {{ event.details }}
+                </div>
             </CardContent>
+            
+            <!-- Expand Indicator -->
+            <!-- Expand Indicator -->
+            <div class="flex justify-end px-6 pb-6 pt-2">
+               <button 
+                 @click.stop="toggleExpand(index)"
+                 class="flex items-center gap-1 bg-secondary/50 px-3 py-1.5 rounded-full text-xs font-medium text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors shadow-sm cursor-pointer"
+               >
+                 <span v-if="!expandedItems.has(index)">Details</span>
+                 <span v-else>Close</span>
+                 <component :is="expandedItems.has(index) ? ChevronUp : ChevronDown" class="h-3 w-3" />
+               </button>
+            </div>
             </Card>
         </div>
       </div>
