@@ -18,7 +18,7 @@ import { ExternalLink } from 'lucide-vue-next'
       <Separator class="my-12" />
       <h3 class="text-2xl font-bold mb-6 tracking-tight">Want to know more?</h3>
       <Button size="lg" class="rounded-full px-8" as-child>
-        <a href="https://nakadei.notion.site/Profile-e0b417f15271c020dc92bc69de1a7552" target="_blank" rel="noopener noreferrer">
+        <a href="https://nakadei.notion.site/nakadei-ebd8b145fa0343d0a6a29dd88653eef0" target="_blank" rel="noopener noreferrer">
           View Full Profile on Notion
           <ExternalLink class="ml-2 h-4 w-4" />
         </a>

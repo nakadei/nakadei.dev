@@ -10,7 +10,7 @@ import iconUrl from '@/assets/icon.png'
   <section class="min-h-[60vh] flex flex-col items-center justify-center space-y-8 py-20">
     <!-- Icon / Avatar -->
     <div class="relative group">
-      <Avatar class="h-32 w-32 sm:h-40 sm:w-40 border-4 border-background shadow-xl">
+      <Avatar class="h-32 w-32 sm:h-40 sm:w-40 border-4 border-white shadow-xl">
         <AvatarImage :src="iconUrl" alt="@nakadeng" />
         <AvatarFallback>nakadei</AvatarFallback>
       </Avatar>
