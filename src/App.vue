@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import Hero from '@/components/Hero.vue'
 import Timeline from '@/components/Timeline.vue'
+import SpaceBackground from '@/components/SpaceBackground.vue'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { ExternalLink } from 'lucide-vue-next'
 </script>
 
 <template>
-  <main class="min-h-screen bg-background font-sans text-foreground antialiased container max-w-screen-md mx-auto px-4">
+  <SpaceBackground />
+  <main class="min-h-screen bg-transparent font-sans text-foreground antialiased container max-w-screen-md mx-auto px-4 relative z-10">
     <Hero />
     <Timeline />
     
@@ -22,8 +24,12 @@ import { ExternalLink } from 'lucide-vue-next'
         </a>
       </Button>
       <p class="mt-16 text-muted-foreground text-sm">
-        © 2025 Daisuke Nakata. All rights reserved.
+        © 2025 nakadei.dev. All rights reserved.
       </p>
     </section>
   </main>
 </template>
+
+<style scoped>
+
+</style>

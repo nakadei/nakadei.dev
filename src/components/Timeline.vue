@@ -29,9 +29,9 @@ const events = [
     title: 'Web Frontend / Infra Engineer',
     company: 'Fanfare Inc.',
     description: '',
-    details: `・Frontend development with Vue 3 / TypeScript
-・Infrastructure management using AWS / Terraform
-・Leading the migration from legacy systems to modern architecture`,
+    details: `
+・Infrastructure Architect & Management (AWS with Terraform)
+・Web Frontend (Nuxt.js with TypeScript)`,
     icon: Briefcase,
     type: 'work'
   },
@@ -40,8 +40,7 @@ const events = [
     title: 'Web Frontend Engineer',
     company: 'Freelance',
     description: '',
-    details: `・Supported development of a SaaS product using React / Next.js
-・Implemented complex UI components and data visualizations`,
+    details: `- Web Frontend (Nuxt.js with TypeScript)`,
     icon: Briefcase,
     type: 'work'
   },
@@ -50,9 +49,8 @@ const events = [
     title: 'Infra / Web Frontend Engineer',
     company: 'Japan Digital Design Inc.',
     description: '',
-    details: `・Designed and built cloud infrastructure on GCP
-・Developed internal tools and dashboards using Vue.js
-・Collaborated with design teams to implement pixel-perfect UIs`,
+    details: `・Infrastructure Architect & Management (AWS with CloudFormation)
+- Web frontend (React.js)`,
     icon: Briefcase,
     type: 'work'
   },

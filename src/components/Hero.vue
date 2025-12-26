@@ -12,7 +12,7 @@ import iconUrl from '@/assets/icon.png'
     <div class="relative group">
       <Avatar class="h-32 w-32 sm:h-40 sm:w-40 border-4 border-background shadow-xl">
         <AvatarImage :src="iconUrl" alt="@nakadeng" />
-        <AvatarFallback>ND</AvatarFallback>
+        <AvatarFallback>nakadei</AvatarFallback>
       </Avatar>
       <!-- Decorative ring or effect could go here -->
     </div>
@@ -27,7 +27,7 @@ import iconUrl from '@/assets/icon.png'
       </div>
       <div class="pt-2">
          <Badge variant="outline" class="text-sm px-4 py-1">
-           engineer / gamer
+           Web Engineer / PC Gamer
          </Badge>
       </div>
     </div>
