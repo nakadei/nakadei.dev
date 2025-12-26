@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Briefcase, GraduationCap, Star, ChevronDown, ChevronUp } from 'lucide-vue-next'
+import { Briefcase, User, GraduationCap, Star, ChevronDown, ChevronUp, ExternalLink, Landmark, Van } from 'lucide-vue-next'
 import { ref } from 'vue'
 
 const expandedItems = ref<Set<number>>(new Set())
@@ -30,9 +30,13 @@ const events = [
     company: 'Fanfare Inc.',
     description: '',
     details: `
-・Infrastructure Architect & Management (AWS with Terraform)
-・Web Frontend (Nuxt.js with TypeScript)`,
-    icon: Briefcase,
+- Infrastructure Architect & Management (AWS with Terraform)
+- Web Frontend (Nuxt.js with TypeScript)`,
+    projectLink: {
+      url: 'https://web.haisya-gasira.com/',
+      text: 'Product: 配車頭'
+    },
+    icon: Van,
     type: 'work'
   },
   {
@@ -41,7 +45,11 @@ const events = [
     company: 'Freelance',
     description: '',
     details: `- Web Frontend (Nuxt.js with TypeScript)`,
-    icon: Briefcase,
+    projectLink: {
+      url: 'https://web.haisya-gasira.com/',
+      text: 'Product: 配車頭'
+    },
+    icon: User,
     type: 'work'
   },
   {
@@ -49,9 +57,13 @@ const events = [
     title: 'Infra / Web Frontend Engineer',
     company: 'Japan Digital Design Inc.',
     description: '',
-    details: `・Infrastructure Architect & Management (AWS with CloudFormation)
+    details: `- Infrastructure Architect & Management (AWS with CloudFormation)
 - Web frontend (React.js)`,
-    icon: Briefcase,
+    projectLink: {
+      url: 'https://japan-d2.com/projects/similar-market',
+      text: 'Product: MMSS 類似相場検索ツール'
+    },
+    icon: Landmark,
     type: 'work'
   },
   {
@@ -59,9 +71,13 @@ const events = [
     title: 'Infra / Corporate Engineer',
     company: 'Japan Digital Design Inc.',
     description: '',
-    details: `・Corporate IT support and network administration
-・Managed security policies and compliance audits`,
-    icon: Briefcase,
+    details: `- Corporate IT support
+- Infrastructure Engineer (AWS with CloudFormation)`,
+    projectLink: {
+      url: 'https://japan-d2.com/division-introduction/m-ais',
+      text: 'Product: MUFG AI Studio',
+    },
+    icon: Landmark,
     type: 'work'
   },
   {
@@ -69,8 +85,7 @@ const events = [
     title: 'Infra Engineer',
     company: 'Asia Quest Inc.',
     description: '',
-    details: `・Server maintenance and monitoring (Linux/Windows)
-・Network troubleshooting and performance tuning`,
+    details: `- Maintenance and construction of Virtual Desktop Infrastructure (Windows Server, Windows PowerShell)`, 
     icon: Briefcase,
     type: 'work'
   },
@@ -79,8 +94,6 @@ const events = [
     title: 'Student',
     company: 'Funabashi-Infomation-Business College of Technology',
     description: '',
-    details: `・Majored in Information Technology
-・Learned basics of programming (Java, C) and Database management`,
     icon: GraduationCap,
     type: 'education'
   }
@@ -112,15 +125,25 @@ const events = [
                 {{ event.title }}
                 </CardTitle>
             </CardHeader>
-            <CardContent v-if="event.details && expandedItems.has(index)">
+            <CardContent v-if="(event.details || event.projectLink) && expandedItems.has(index)">
                 <div class="pt-4 border-t border-border mt-4 text-sm text-muted-foreground whitespace-pre-line leading-relaxed">
                   {{ event.details }}
+                  
+                  <div v-if="event.projectLink" class="mt-3">
+                    <a 
+                      :href="event.projectLink.url" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1 text-primary hover:text-primary/80 transition-colors font-medium hover:underline"
+                    >
+                      {{ event.projectLink.text }} <ExternalLink class="h-3 w-3" />
+                    </a>
+                  </div>
                 </div>
             </CardContent>
             
             <!-- Expand Indicator -->
-            <!-- Expand Indicator -->
-            <div class="flex justify-end px-6 pb-6 pt-2">
+            <div v-if="event.details" class="flex justify-end px-6 pb-6 pt-2">
                <button 
                  @click.stop="toggleExpand(index)"
                  class="flex items-center gap-1 bg-secondary/50 px-3 py-1.5 rounded-full text-xs font-medium text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors shadow-sm cursor-pointer"
