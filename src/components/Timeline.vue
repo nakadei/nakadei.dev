@@ -2,13 +2,14 @@
 import {
   Card,
   CardContent,
-  CardDescription,
+
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Briefcase, User, GraduationCap, Star, ChevronDown, ChevronUp, ExternalLink, Landmark, Van } from 'lucide-vue-next'
+
+import { Briefcase, User, GraduationCap, ChevronDown, ChevronUp, ExternalLink, Landmark, Van } from 'lucide-vue-next'
+
 import { ref } from 'vue'
 
 const expandedItems = ref<Set<number>>(new Set())
